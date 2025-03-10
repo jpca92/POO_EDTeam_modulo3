@@ -7,7 +7,7 @@ class BaseClass:
         user_data = {'name': name, 'email': email, 'phone': phone}
         self.contacts.append(user_data)
     
-    def update_contact(self, email. name, phone):
+    def update_contact(self, email, name, phone):
         contact = self.search_contact(email)
         if contact is not None:
             contact['name'] = name
@@ -15,8 +15,13 @@ class BaseClass:
             return True
         return False
 
-    def search_contact(self):
-        pass
+    @classmethod
+    def search_contact(cls, email):
+        for contact in cls.contacts:
+            if contact['email'] == email:
+                return contact
+        return None
+        
 
     @classmethod
     def all_contacts(cls):
@@ -31,8 +36,8 @@ class Contacts(BaseClass):
         for contact in contacts:
             print(contact['name'], '\t', contact['email'], '\t', contact['phone'])
     
-    def search(self):
-        pass
+    def search(self, email):
+        return self.search_contact(email)
 
     def update(self, email, name, phone):
         return self.update_contact(email, name, phone)

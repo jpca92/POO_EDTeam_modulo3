@@ -31,8 +31,7 @@ class MainMenu:
     @staticmethod
     def showMenuSearchContact():
         print('SEARCH CONTACT')
-        name = input('Enter the name: ')
-        return name
+        
     
     @staticmethod
     def searchContact():

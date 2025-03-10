@@ -3,11 +3,14 @@ from menu import MainMenu
 
 
 if __name__ == '__main__':
+    
+    # Create an instance of the Contacts class
+    contacts = Contacts()
+
     while True:
         # Show main menu    
         option = MainMenu.showMainMenu()
-        # Create an instance of the Contacts class
-        contacts = Contacts()
+        
         match(option):
             case 1: # Add contact
                 # Show add contact menu
@@ -38,11 +41,12 @@ if __name__ == '__main__':
                 contact = contacts.search(email)
                 if contact:
                     name, phone = MainMenu.getContactData()
-                    response = contacts.update(name, phone, contact['email'])
+                    response = contacts.update(contact['email'], name, phone)
+
                     print('contact updated') 
                 else:
                     print('Contact not found')
-                    
+
             case 5: # Exit
                 print('Goodbye!')
                 break
