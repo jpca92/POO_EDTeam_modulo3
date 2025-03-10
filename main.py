@@ -42,6 +42,7 @@ if __name__ == '__main__':
                     print('contact updated') 
                 else:
                     print('Contact not found')
+                    
             case 5: # Exit
                 print('Goodbye!')
                 break
